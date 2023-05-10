@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.Map;
 
 @Slf4j
-@Controller
+@Controller // @RestController
 public class RequestParamController {
 
     @RequestMapping("/request-param-v1")
@@ -27,8 +27,19 @@ public class RequestParamController {
         response.getWriter().write("ok");
     }
 
+
+
+//    @RequestMapping("/request-param-v1")
+//    public String requestParamV1(HttpServletRequest request, HttpServletResponse response) throws IOException {
+//        String username = request.getParameter("username");
+//        int age = Integer.parseInt(request.getParameter("age"));
+//
+//
+//        return "ok";
+//    }
+
     // @Controller이면서 String이면 viewResolver가 나옴(논리 이름을 물리 이름으로 바꿔준)
-    @ResponseBody // 또는 @Controller 대신에 @RestController
+    @ResponseBody // 또는 @Controller 대신에 @RestController -> response body에 직접 입력
     @RequestMapping("/request-param-v2")
     public String requestParamV2(
             @RequestParam("username") String memberName,
