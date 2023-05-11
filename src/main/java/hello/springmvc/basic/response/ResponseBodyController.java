@@ -38,6 +38,7 @@ public class ResponseBodyController {
         return "ok";
     }
 
+    // 상태코드를 조건문으로 프로그래밍할 때는 ResponseEntity 아니면 @ResponseStatus(HttpStatus.OK)로 상태코드 작성
     @ResponseBody
     @GetMapping("/response-body-json-v1")
     public ResponseEntity<HelloData> responseBodyJsonV1() {
